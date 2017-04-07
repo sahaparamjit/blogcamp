@@ -1,18 +1,18 @@
-<div class="col-md-6 col-md-offset-3">
-    <div class="well">
+<div class="col-md-12">
+    
         <h2>Create New Blog Post</h2>
-        <%= form_for @post, url: user_posts_url do |f| %>
-                  <%= f.label :title %>
-                  <%= f.text_field :title, class:'form-control'%>
+        <%= form_for @post, html:{class: 'form-group'},url: user_posts_url do |f| %>
+                  
+                  <%= f.text_field :title,autofocus: true, placeholder: "Title", class:'form-control create-posts'%>
                   <%= f.label :content %>
-                  <%= f.cktext_area :content, class:'form-control ckeditor'%>
+                  <%= f.text_area :content, rows: "40", class:'form-control ckeditor create-posts', placeholder: "Content"%>
                   <%= f.label :tags %>
-                  <%= f.select :tags,['Health', 'Engineering', 'Food'],{}, class:'form-control dropdown-toggle'%>
+                  <%= f.select :tags,['Health', 'Engineering', 'Food'],{}, class:'form-control dropdown-toggle create-posts'%>
                   </br>
                   <%= f.label :status %>
-                  <%= f.select :status,['Published', 'Draft'],{}, class:'form-control'%>
+                  <%= f.select :status,['Published', 'Draft'],{}, class:'form-control create-posts'%>
                   </br>
         <%= f.submit 'Create Posts', class: 'btn btn-primary'%>
         <% end %>
-    </div>
+  
 </div>
