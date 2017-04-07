@@ -1,28 +1,35 @@
 </br> </br>
-<div class="container pro-box">
-    <div class="row">
-        <% @post.each do |post| %>
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <div class="caption">
+
+  <div class="container">
+        <div class="row"><div class="col-md-10 col-md-offset-1">
+            <% if user_signed_in? %>
+        <%= link_to "Create New Post", new_user_post_url, class:'btn btn-primary' if @user.id == current_user.id %>
+    <% end %></div></br><hr>
+            <% @post.each do |post| %>
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-body">
                         <small><i class="fa fa-tags"></i> <%= post.tags %> <time><%= post.created_at.strftime("%b %d, %y")%></time></small>
-                        <h3><%= link_to post.title, user_post_url(user_id: params[:user_id], id: post.id) %></a></h3>
+                        <h2 class="post-title">
+                            <%= link_to post.title, user_post_url(user_id: params[:user_id], id: post.id), class:'posts' %>
+                        </h2>
                         <p>
                                 <% if post.status == "Published" %>
                                     <span class="label label-danger">PUBLISHED</span>
+                                <% else %>
+                                    <span class="label label-danger">DRAFT</span>
                                 <% end %>
                            </br></br>
                         <% if user_signed_in? %>
-                            <%= link_to "Edit Post", edit_user_post_url(user_id: current_user.id, id: post.id) if @user.id == current_user.id %> 
-                            <%= link_to "Delete", user_post_url(user_id: current_user.id, id: post.id),data: { confirm: "Are you sure?" },method: :delete, class:'pull-right' if @user.id == current_user.id %>
+                            <i class="fa fa-edit"></i><%= link_to "Edit", edit_user_post_url(user_id: current_user.id, id: post.id), class:'p_ed' if @user.id == current_user.id %> 
+                            &nbsp;<i class="fa fa-trash"><%= link_to "Delete", user_post_url(user_id: current_user.id, id: post.id),data: { confirm: "Are you sure?" },method: :delete, class:'pull-right p_ed' if @user.id == current_user.id %></i>
                         <% end %>  
                         </small></p>
                     </div>
                 </div>
+                <hr>
             </div>
-        <% end %>
-    </div></br>
-    <% if user_signed_in? %>
-        <%= link_to "Create New Post", new_user_post_url if @user.id == current_user.id %>
-    <% end %>
-</div>
+            <% end %>
+        </div></br>
+    
+    </div>

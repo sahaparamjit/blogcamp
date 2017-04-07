@@ -18,9 +18,7 @@
                         <h2 class="post-title">
                             <%= post.title %>
                         </h2>
-                        <h3 class="post-subtitle">
-                            
-                        </h3>
+                        <small><%= truncate post.content.html_safe, length:1000,class:'text-justify', :escape => false %></small>
                     </a>
                     <p class="post-meta">Posted by <%= link_to post.user.email, user_posts_url(post.user.id) %> on <%= post.created_at.strftime("%Y-%m-%d")%></p>
                     </div>

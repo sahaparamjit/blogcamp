@@ -20,9 +20,9 @@
 @import "font-awesome";
 
 
-.logo{
-    font-family: "Open Sans";
-    font-weight: 800px;
+.nav{
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
 }
 .search{
     padding-top:7px;
@@ -63,4 +63,9 @@
 .create-posts{
     border :0;
     box-shadow: none;
+}
+.p_ed{
+    text-decoration: none;
+    color:black;
+    font-family: 'Abril Fatface', cursive;
 }
