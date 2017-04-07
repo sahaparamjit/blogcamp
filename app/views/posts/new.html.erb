@@ -1,0 +1,18 @@
+<div class="col-md-6 col-md-offset-3">
+    <div class="well">
+        <h2>Create New Blog Post</h2>
+        <%= form_for @post, url: user_posts_url do |f| %>
+                  <%= f.label :title %>
+                  <%= f.text_field :title, class:'form-control'%>
+                  <%= f.label :content %>
+                  <%= f.cktext_area :content, class:'form-control ckeditor'%>
+                  <%= f.label :tags %>
+                  <%= f.select :tags,['Health', 'Engineering', 'Food'],{}, class:'form-control dropdown-toggle'%>
+                  </br>
+                  <%= f.label :status %>
+                  <%= f.select :status,['Published', 'Draft'],{}, class:'form-control'%>
+                  </br>
+        <%= f.submit 'Create Posts', class: 'btn btn-primary'%>
+        <% end %>
+    </div>
+</div>

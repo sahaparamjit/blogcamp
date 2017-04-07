@@ -1,0 +1,28 @@
+</br> </br>
+<div class="container pro-box">
+    <div class="row">
+        <% @post.each do |post| %>
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <small><i class="fa fa-tags"></i> <%= post.tags %> <time><%= post.created_at.strftime("%b %d, %y")%></time></small>
+                        <h3><%= link_to post.title, user_post_url(user_id: params[:user_id], id: post.id) %></a></h3>
+                        <p>
+                                <% if post.status == "Published" %>
+                                    <span class="label label-danger">PUBLISHED</span>
+                                <% end %>
+                           </br></br>
+                        <% if user_signed_in? %>
+                            <%= link_to "Edit Post", edit_user_post_url(user_id: current_user.id, id: post.id) if @user.id == current_user.id %> 
+                            <%= link_to "Delete", user_post_url(user_id: current_user.id, id: post.id),data: { confirm: "Are you sure?" },method: :delete, class:'pull-right' if @user.id == current_user.id %>
+                        <% end %>  
+                        </small></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div></br>
+    <% if user_signed_in? %>
+        <%= link_to "Create New Post", new_user_post_url if @user.id == current_user.id %>
+    <% end %>
+</div>

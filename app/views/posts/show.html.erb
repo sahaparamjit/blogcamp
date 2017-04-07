@@ -1,0 +1,24 @@
+<div class="container ">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="article text-justify">
+                <small><i class="fa fa-tags"></i> <%= @post.tags %> | <time><%= @post.created_at.strftime("%b %d, %y")%></time> | Posted by <%= link_to @post.user.email, user_posts_url(@post.user.id) %></small>
+                <h2><%= @post.title %></h2>
+                <p class="post-content"><%= @post.content.html_safe %></p>
+                
+            </div>
+        </div>
+        <% if @postall.present? %>
+        <div class="col-md-2">
+            <div class="related-articles">
+                <strong>Posts by <%= @post.user.email %></strong>
+                <% @postall.each do |post| %>
+                    <small>
+                        <h4><%= post.title %></h4>
+                    </small>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>

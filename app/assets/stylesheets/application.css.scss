@@ -1,0 +1,62 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+.logo{
+    font-family: "Open Sans";
+    font-weight: 800px;
+}
+.search{
+    padding-top:7px;
+}
+.alert-notice, .alert-alert {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  margin-top: -14px;
+  display:float;
+}
+.alert-success{
+    padding-top: 20px;
+}
+.flash-container {
+  position: absolute;
+  width: 100%;
+  margin-left:-200px;
+}
+.posts{
+    color:black;
+    font-weight: bold;
+    &:hover{
+        text-decoration:none;
+        color:black;
+    }
+}
+.post-content{
+    font: 400 1.25em/2em PT Serif,serif;
+    color: #666660;
+}
+.article{
+    background-color: #fff;
+}
+.related-articles{
+    padding-top:28px;
+}
