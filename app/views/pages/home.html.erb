@@ -2,28 +2,26 @@
     <!-- Set your background image for this header on the line below. -->
    </br>
    </br>
-   </br>
-   </br>
+   
    
 
     <!-- Main Content -->
-    <div class="container">
-        <div class="row">
+    <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <% @post.each do |post| %>
+                <hr>
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <small><i class="fa fa-tags"></i> <%= post.tags %> <time><%= post.created_at.strftime("%b %d, %y")%></time></small>
-                    <a href=<%= user_post_url(user_id: post.user_id, id: post.id) %> class="posts">
-                        <h2 class="post-title">
+                    <a href=<%= user_post_url(user_id: post.user_id, id: post.id) %> class="anchor">
+                        <h2 class="post-title posts">
                             <%= post.title %>
                         </h2>
-                        <small><%= truncate post.content.html_safe, length:1000,class:'text-justify', :escape => false %></small>
+                        <p class="post-con-home text-justify"><%= truncate post.content.html_safe, length:1000, :escape => false %></p>
                     </a>
                     <p class="post-meta">Posted by <%= link_to post.user.email, user_posts_url(post.user.id) %> on <%= post.created_at.strftime("%Y-%m-%d")%></p>
                     </div>
                 </div>
-                <hr>
                 <% end %>
                 <!-- Pager -->
                 <ul class="pager">
@@ -33,6 +31,4 @@
                 </ul>
             </div>
         </div>
-    </div>
-
     <hr>

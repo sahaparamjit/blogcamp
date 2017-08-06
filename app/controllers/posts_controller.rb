@@ -62,7 +62,19 @@ class PostsController < ApplicationController
     
     def show
         @post = Post.find(params[:id])
-        @postall = Post.where("user_id = ? AND id != ?",params[:user_id],params[:id])
+        if @post.status != "Published"
+            if user_signed_in?
+                if current_user.id == params[:user_id].to_i
+                    @postall = Post.where("user_id = ? AND id != ?",params[:user_id],params[:id])
+                else
+                    redirect_to root_url
+                end
+            else
+                redirect_to root_url
+            end
+        else
+            @postall = Post.where("user_id = ? AND id != ?",params[:user_id],params[:id])
+        end
     end
     
      private 

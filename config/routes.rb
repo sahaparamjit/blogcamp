@@ -7,4 +7,5 @@ resources :users do
   resources :posts
 end
 get '/about-us', to: 'pages#about', as: 'aboutus'
+get '/search', to: 'pages#search', as: 'search'
 end

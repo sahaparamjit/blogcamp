@@ -20,9 +20,32 @@
 @import "font-awesome";
 
 
+body{
+    //background: url(http://graphicdesignjunction.com/wp-content/uploads/2011/03/background-pattern-design-65.jpg);
+    //background: url(https://cdn.elegantthemes.com/blog/wp-content/uploads/2016/02/this-photo-is-only-for-test-1620626-1279x853.jpg);
+    font-family:medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+}
+.container{
+    margin:none;
+}
+.panel-body{
+    margin:auto;
+}
 .nav{
     font-family: 'Indie Flower', cursive;
     font-size: 20px;
+}
+.navbar-default .navbar-nav > li > a{
+    color:white;
+}
+.navbar-default .navbar-brand{
+    color:white;
+}
+.navbar{
+    background: #1D4350;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #A43931, #1D4350);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #A43931, #1D4350); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 .search{
     padding-top:7px;
@@ -45,7 +68,10 @@
 .posts{
     color:black;
     font-weight: bold;
-    &:hover{
+}
+.anchor{
+    color: black;
+     &:hover{
         text-decoration:none;
         color:black;
     }
@@ -53,6 +79,7 @@
 .post-content{
     font: 400 1.25em/2em PT Serif,serif;
     color: #666660;
+    margin: 10 10 10 10;
 }
 .article{
     background-color: #fff;
@@ -68,4 +95,12 @@
     text-decoration: none;
     color:black;
     font-family: 'Abril Fatface', cursive;
+}
+.about{
+  //  color:white;
+}
+.post-con-home{
+    font-family:medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+    font-weight:normal;
+    font-size: medium;
 }

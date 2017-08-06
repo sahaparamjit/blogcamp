@@ -1,0 +1,29 @@
+<div class="container">
+        <div class="row">
+            <% if @search_r.present? %>
+            <% @search_r.each do |post| %>
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <small><i class="fa fa-tags"></i> <%= post.tags %> <time><%= post.created_at.strftime("%b %d, %y")%></time></small>
+                        <h2 class="post-title">
+                            <%= link_to post.title, user_post_url(user_id: post.user_id, id: post.id), class:'posts' %>
+                        </h2></small></p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <% end %>
+            <% else %>
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <h2 class="post-title">There are no posts related to <%= params[:search]%></br> <i class="fa fa-frown-o fa-5x" aria-hidden="true"></i></h2></small></p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <% end %>
+        </div>
+        </br>
+    </div>

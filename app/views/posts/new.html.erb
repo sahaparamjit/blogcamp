@@ -3,7 +3,7 @@
         <h2>Create New Blog Post</h2>
         <%= form_for @post, html:{class: 'form-group'},url: user_posts_url do |f| %>
                   
-                  <%= f.text_field :title,autofocus: true, placeholder: "Title", class:'form-control create-posts'%>
+                  <%= f.text_field :title,autofocus: true, placeholder: "Title",autocomplete: "off", class:'form-control create-posts'%>
                   <%= f.label :content %>
                   <%= f.text_area :content, rows: "40", class:'form-control ckeditor create-posts', placeholder: "Content"%>
                   <%= f.label :tags %>
